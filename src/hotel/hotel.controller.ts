@@ -1,9 +1,11 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { HotelService } from './hotel.service';
 import { HotelCreateDTO } from './model/dto/hotel-create.dto';
 import { HotelFilter } from './model/dto/hotel-filter.dto';
 
 @Controller('hotel')
+@UseGuards(AuthGuard('jwt'))
 export class HotelController {
     constructor(private service: HotelService) {}
 

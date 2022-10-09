@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HotelModule } from './hotel/hotel.module';
 import { Hotel } from './hotel/model/hotel.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { Hotel } from './hotel/model/hotel.entity';
       entities: [Hotel],
       dropSchema: false,
       synchronize: true
-    })
+    }),
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
